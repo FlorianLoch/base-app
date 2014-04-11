@@ -9,6 +9,9 @@
       url: "/users/sign_in"
       templateUrl: "/templates/users/sign_in.html"
       controller: "LoginCtrl"
+      onEnter: (userService, $state) ->
+      	if (!isAllowed("admin", userService))
+      		$state.go("not_allowed")
     ).state("sign_up",
       url: "/users/sign_up"
       templateUrl: "/templates/users/sign_up.html"
@@ -54,4 +57,24 @@
       templateUrl: "/templates/admin/users/edit.html"
       controller: "EditUsersCtrl"
     )
+
+    isAllowed (allowedRoles, userService) ->
+    	userRoles = userService.roles
+    	if (userService.signedId == false) return false;
+    	if ((typeof allowedRoles == "string" && inArray(userRoles, allowedRoles)) || (typeof allowedRoles == "array" && arrayIteminArray(userRoles, allowedRoles)))
+    		return true;
+    	else
+    		return false
+
+    inArray (haystack, needle) ->
+    	for (i = 0; i < haystack.length; i++)
+    		if (haystack[i] == needle)
+    			return true
+    	return false
+
+    arrayItemInArray (array1, array2) ->
+    	for (i = 0; i < haystack.length; i++)
+    		if (inArray(array2, array1[i]))
+    			return true
+    	return false
 ]
