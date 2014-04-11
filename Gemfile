@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
+ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.3'
+gem 'rails', '4.1.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: [:development, :test]
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.3'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -24,7 +24,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -69,3 +69,5 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'angular-ui-router-rails', ref:'98a785b50da1226947dc2fdb4e499086e15571bb', git: 'https://github.com/flower-pot/angular-ui-router-rails.git'
 gem 'ng-t-rails'
+gem 'kaminari'
+gem 'ng-table-rails'
